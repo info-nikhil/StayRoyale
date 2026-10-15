@@ -19,7 +19,8 @@ const connectDB = async () => {
         console.log("MongoDB Host:", mongoose.connection.host);
     }
     catch(error){
-        console.log(error.message);
+        console.error("MongoDB connection failed:", error.message);
+        throw error;
     }
 }
 
