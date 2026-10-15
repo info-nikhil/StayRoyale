@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { useDeferredValue } from "react";
 
 const userSchema = mongoose.Schema({
     _id: {type: String, required: true},
