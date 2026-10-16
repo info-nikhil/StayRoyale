@@ -49,7 +49,7 @@ const AddRoom = () => {
                 images[key] && formData.append('images', images[key])
             })
 
-            const { data } = await axios.post('/api/rooms/', formData, {header: {Authorization: `Bearer ${await getToken()}`}})
+            const { data } = await axios.post('/api/rooms/', formData, {headers: {Authorization: `Bearer ${await getToken()}`}})
 
             if(data.success){
                 toast.success(data.message)
