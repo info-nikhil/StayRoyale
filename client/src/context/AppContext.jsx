@@ -19,24 +19,48 @@ export const AppProvider = ({ children }) => {
     const [showHotelReg, setShowHotelReg] = useState(false);
     const [searchedCities, setSearchedCities] = useState([])
 
+    // const fetchUser = async () => {
+    //     try{
+    //         const {data} = await axios.get('/api/user', {headers: {Authorization: `Bearer ${await getToken()}`}})
+    //         if(data.success){
+    //             setIsOwner(data.role === "hotelOwner");
+    //             setSearchedCities(data.recentSearchedCities);
+    //         }
+    //         else{
+    //             // Retry to fetch after 5 minutes
+    //             setTimeout(() => {
+    //                 fetchUser()
+    //             },5000)
+    //         }
+    //     }
+    //     catch (error){
+    //         toast.error(error.message)
+    //     }
+    // }
+
+    // Updated code after removing else part from above commented code
     const fetchUser = async () => {
-        try{
-            const {data} = await axios.get('/api/user', {header: {Authorization: `Bearer ${await getToken()}`}})
-            if(data.success){
+        try {
+            const token = await getToken();
+
+            const { data } = await axios.get('/api/user', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            if (data.success) {
                 setIsOwner(data.role === "hotelOwner");
                 setSearchedCities(data.recentSearchedCities);
             }
-            else{
-                // Retry to fetch after 5 minutes
-                setTimeout(() => {
-                    fetchUser()
-                },5000)
-            }
+        } catch (error) {
+            console.error(
+                "Fetch user failed:",
+                error.response?.status,
+                error.response?.data
+            );
         }
-        catch (error){
-            toast.error(error.message)
-        }
-    }
+    };
 
     useEffect(() => {
         if(user){
