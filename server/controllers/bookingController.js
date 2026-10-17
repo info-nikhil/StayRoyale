@@ -130,7 +130,8 @@ export const getUserBookings = async (req, res) => {
 
 export const getHotelBookings = async (req, res) => {
   try {
-    const hotel = await Hotel.findOne({owner: req.auth.userId});
+    const hotel = await Hotel.findOne({ owner: req.user._id });
+    // const hotel = await Hotel.findOne({owner: req.auth.userId});
 
     if (!hotel) {
       return res.json({
@@ -153,3 +154,65 @@ export const getHotelBookings = async (req, res) => {
     res.json({success: false, message: "Failed to fetch bookings"});
   }
 };
+
+
+
+
+
+
+/*
+export const getHotelBookings = async (req, res) => {
+  try {
+    console.log("req.auth:", req.auth);
+    console.log("req.user:", req.user);
+
+    const ownerId = req.user?._id;
+
+    if (!ownerId) {
+      return res.status(401).json({
+        success: false,
+        message: "Authenticated MongoDB user ID not found"
+      });
+    }
+
+    const hotel = await Hotel.findOne({ owner: ownerId });
+
+    console.log("Owner ID searched:", ownerId);
+    console.log("Hotel found:", hotel);
+
+    if (!hotel) {
+      return res.status(404).json({
+        success: false,
+        message: "No Hotel found for this owner ID"
+      });
+    }
+
+    const bookings = await Booking.find({
+      hotel: hotel._id
+    })
+      .populate("room hotel user")
+      .sort({ createdAt: -1 });
+
+    const totalBookings = bookings.length;
+    const totalRevenue = bookings.reduce(
+      (sum, booking) => sum + booking.totalPrice,
+      0
+    );
+
+    return res.json({
+      success: true,
+      dashboardData: {
+        bookings,
+        totalBookings,
+        totalRevenue
+      }
+    });
+  } catch (error) {
+    console.error("getHotelBookings error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Failed to fetch bookings"
+    });
+  }
+};
+*/
