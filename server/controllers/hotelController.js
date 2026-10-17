@@ -8,6 +8,9 @@ export const registerHotel = async (req, res) => {
 
         // Check if User Already Registered
         const hotel = await Hotel.findOne({ owner });
+        // const hotel = await Hotel.findOne({
+        //     owner: req.auth.userId
+        // });
 
         if (hotel) {
             return res.json({success: false, message: "Hotel Already Registered"});
