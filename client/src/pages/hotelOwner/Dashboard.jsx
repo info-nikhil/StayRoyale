@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 const Dashboard = () => {
 
-    const { currency, user, getToken, toast, axios } = useAppContext();
+    const { currency, user, getToken, axios } = useAppContext();
     const [dashboardData, setDashboardData] = useState({
         bookings: [],
         totalBookings: 0,
@@ -21,15 +21,20 @@ const Dashboard = () => {
                 }
             });
 
+            // console.log('Dashboard API response:', data);
+
             if (data.success) {
                 setDashboardData(data.dashboardData);
             } 
             else {
                 toast.error(data.message);
+                // toast.error(data.message || 'Failed to fetch dashboard data');
             }
         } 
         catch (error) {
             toast.error(error.message);
+            // console.error('Dashboard fetch error',error.response?.data || error.message);
+            // toast.error(error.response?.data?.message || error.message);
         }
     };
 
