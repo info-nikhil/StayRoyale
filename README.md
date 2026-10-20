@@ -4,7 +4,7 @@
 
 The project integrates authentication, MongoDB data persistence, image hosting, email notifications, and Stripe Checkout.
 
-## ✨ Features
+## ✨ Features 
 
 ### 🧳 Guest experience
 - Browse available rooms and explore room details.
