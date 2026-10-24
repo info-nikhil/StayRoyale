@@ -4,6 +4,8 @@
 
 The project integrates authentication, MongoDB data persistence, image hosting, email notifications, and Stripe Checkout.
 
+**Live Link:** [`stay-royale.vercel.app`](https://stay-royale.vercel.app)
+
 ## ✨ Features 
 
 ### 🧳 Guest experience
