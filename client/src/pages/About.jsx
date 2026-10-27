@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { assets } from '../assets/assets'
-import roomImg1 from '../assets/roomImg1.jpg'
-import roomImg2 from '../assets/roomImg2.jpg'
-import roomImg3 from '../assets/roomImg3.jpg'
+// import roomImg1 from '../assets/roomImg1.jpg'
+// import roomImg2 from '../assets/roomImg2.jpg'
+// import roomImg3 from '../assets/roomImg3.jpg'
 
 const About = () => {
   const benefits = [
@@ -73,7 +73,7 @@ const About = () => {
           <div className="relative">
             {/* Hero image */}
             <img
-                src={roomImg1}
+                src={assets.roomImg1}
                 alt="A beautiful hotel destination for your next getaway"
                 className="h-72 w-full rounded-2xl object-cover shadow-xl sm:h-96 lg:h-[430px]"
             />
@@ -121,13 +121,13 @@ const About = () => {
           <div className="grid grid-cols-2 gap-4">
             {/* Story images */}
             <img
-                src={roomImg2}
+                src={assets.roomImg2}
                 alt="Comfortable hotel room"
                 className="h-52 w-full rounded-xl object-cover sm:h-64"
             />
 
             <img
-                src={roomImg3}
+                src={assets.roomImg3}
                 alt="A relaxing hotel interior"
                 className="mt-8 h-52 w-full rounded-xl object-cover sm:h-64"
             />
