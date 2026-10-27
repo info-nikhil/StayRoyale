@@ -28,27 +28,46 @@ const ExclusiveOffers = () => {
                 {exclusiveOffers.map((item) => (
                     <div
                         key={item._id}
-                        className='group relative flex flex-col items-start justify-between gap-1 pt-12 md:pt-18 px-4 rounded-xl text-white bg-no-repeat bg-cover bg-center'
+                        role="link"
+                        tabIndex={0}
+                        onClick={() => goTo(`/rooms?experience=${item.experience}`)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault()
+                                goTo(`/rooms?experience=${item.experience}`)
+                            }
+                        }}
+                        className='group relative flex flex-col items-start justify-between gap-1 pt-12 md:pt-18 px-4 rounded-xl text-white bg-no-repeat bg-cover bg-center cursor-pointer overflow-hidden transition-transform duration-300 focus-visible:outline-2 focus-visible:outline-offset-2'
                         style={{ backgroundImage: `url(${item.image})` }}
                     >
-                        <p className='px-3 py-1 absolute top-4 left-4 text-xs bg-white text-gray-800 font-medium rounded-full'>
+                        <div className="absolute inset-0 bg-black/10 transition-colors duration-300 group-hover:bg-black/30" />
+                        <p className='px-3 py-1 absolute z-10 top-4 left-4 text-xs bg-white text-gray-800 font-medium rounded-full'>
                             {item.priceOff}% OFF
                         </p>
 
-                        <div>
+                        <div className="relative z-10">
                             <p className='text-2xl font-medium font-playfair'>{item.title}</p>
                             <p>{item.description}</p>
                             <p className='text-xs text-white/70 mt-3'>Expires {item.expiryDate}</p>
                         </div>
 
-                        <button onClick={() => goTo(`/rooms?experience=${item.experience}`)} className='flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5'>
+                        {/* <button onClick={() => goTo(`/rooms?experience=${item.experience}`)} className='flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5'>
                             View Offers
                             <img
                                 className='invert group-hover:translate-x-1 transition-all'
                                 src={assets.arrowIcon}
                                 alt="arrow-icon"
                             />
-                        </button>
+                        </button> */}
+
+                        <div className="relative z-10 flex items-center gap-2 font-medium mt-4 mb-5">
+                            View Offers
+                            <img
+                                className='invert group-hover:translate-x-1 transition-all'
+                                src={assets.arrowIcon}
+                                alt="arrow-icon"
+                            />
+                        </div>
                     </div>
                 ))}
             </div>

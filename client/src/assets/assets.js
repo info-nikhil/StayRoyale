@@ -28,9 +28,14 @@ import roomImg2 from './roomImg2.jpg'
 import roomImg3 from './roomImg3.jpg'
 import roomImg4 from './roomImg4.png'
 import regImage from './regImage.png'
-import exclusiveOfferCardImg1 from "./exclusiveOfferCardImg1.png";
-import exclusiveOfferCardImg2 from "./exclusiveOfferCardImg2.png";
-import exclusiveOfferCardImg3 from "./exclusiveOfferCardImg3.png";
+import exclusiveOfferCardImg1 from "./exclusiveOfferCardImg1.jpg";
+import exclusiveOfferCardImg2 from "./exclusiveOfferCardImg2.jpg";
+import exclusiveOfferCardImg3 from "./exclusiveOfferCardImg3.jpg";
+import experienceLuxury from "./experience_luxury.jpg";
+import experienceRomance from "./experience_romance.jpg";
+import experienceFamily from "./experience_family.jpg";
+import experienceNature from "./experience_nature.jpg";
+import experiencePool from "./experience_pool.jpg";
 import addIcon from "./addIcon.svg";
 import dashboardIcon from "./dashboardIcon.svg";
 import listIcon from "./listIcon.svg";
@@ -83,6 +88,13 @@ export const assets = {
     exclusiveOfferCardImg1,
     exclusiveOfferCardImg2,
     exclusiveOfferCardImg3,
+
+    // Rooms Experience
+    experienceLuxury,
+    experienceRomance,
+    experienceFamily,
+    experienceNature,
+    experiencePool,
 }
 
 export const cities = [
@@ -92,11 +104,22 @@ export const cities = [
     "London",
 ];
 
+
+const getExpiryDate = (days) => {
+    const date = new Date();
+    date.setDate(date.getDate() + days);
+
+    return date.toLocaleDateString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+    });
+};
+
 // Exclusive Offers Dummy Data
 export const exclusiveOffers = [
-    { _id: 1, title: "Summer Escape Package", description: "Enjoy a complimentary night and daily breakfast", priceOff: 25, expiryDate: "Aug 31", image: exclusiveOfferCardImg1 },
-    { _id: 2, title: "Romantic Getaway", description: "Special couples package including spa treatment", priceOff: 20, expiryDate: "Sep 20", image: exclusiveOfferCardImg2 },
-    { _id: 3, title: "Luxury Retreat", description: "Book 60 days in advance and save on your stay at any of our luxury properties worldwide.", priceOff: 30, expiryDate: "Sep 25", image: exclusiveOfferCardImg3 },
+    { _id: 1, title: "Luxury & Comfort", description: "Premium rooms for travellers who want the very best.", priceOff: 25, expiryDate: getExpiryDate(2), image: exclusiveOfferCardImg1, experience: "luxury", },
+    { _id: 2, title: "Romantic Getaway", description: "Intimate double rooms made for two.", priceOff: 20, expiryDate: getExpiryDate(5), image: exclusiveOfferCardImg2, experience: "romantic", },
+    { _id: 3, title: "Nature & Escape", description: "Wake up to mountain views and fresh air.", priceOff: 30, expiryDate: getExpiryDate(3), image: exclusiveOfferCardImg3, experience: "nature", },
 ]
 
 // Testimonials Dummy Data
