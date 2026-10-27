@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -25,22 +26,22 @@ const Footer = () => {
                 <div>
                     <p className='font-playfair text-lg text-gray-800'>COMPANY</p>
                     <ul className='mt-3 flex flex-col gap-2 text-sm'>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Partners</a></li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/development">Careers</Link></li>
+                        <li><Link to="/development">Press</Link></li>
+                        <li><Link to="/development">Blog</Link></li>
+                        <li><Link to="/development">Partners</Link></li>
                     </ul>
                 </div>
 
                 <div>
                     <p className='font-playfair text-lg text-gray-800'>SUPPORT</p>
                     <ul className='mt-3 flex flex-col gap-2 text-sm'>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Safety Information</a></li>
-                        <li><a href="#">Cancellation Options</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Accessibility</a></li>
+                        <li><Link to="/development">Help Center</Link></li>
+                        <li><Link to="/development">Safety Information</Link></li>
+                        <li><Link to="/development">Cancellation Options</Link></li>
+                        <li><Link to="/development">Contact Us</Link></li>
+                        <li><Link to="/development">Accessibility</Link></li>
                     </ul>
                 </div>
 

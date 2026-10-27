@@ -17,43 +17,46 @@ import Loader from './components/Loader';
 import About from './pages/About';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
+import Development from './components/Development';
 
 
 
 const App = () => {
 
-  const isOwnerPath = useLocation().pathname.includes("owner");
+	const isOwnerPath = useLocation().pathname.includes("owner");
 
-  const {showHotelReg} = useAppContext();
+	const {showHotelReg} = useAppContext();
 
-  return (
-    <div>
-      <Toaster />
-      {!isOwnerPath && <Navbar />}
-      {showHotelReg && <HotelReg />}
-      <div className='min-h-[70vh]'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/rooms' element={<AllRooms />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/experiences' element={<Experience />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/rooms/:id' element={<RoomDetails />} />
-          <Route path='/my-bookings' element={<MyBookings />} />
-          <Route path='/loader/:nextUrl' element={<Loader />} />
+	return (
+	<div>
+		<Toaster />
+		{!isOwnerPath && <Navbar />}
+		{showHotelReg && <HotelReg />}
+		<div className='min-h-[70vh]'>
+		<Routes>
+			<Route path='/' element={<Home />} />
+			<Route path='/rooms' element={<AllRooms />} />
+			<Route path='/about' element={<About />} />
+			<Route path='/experiences' element={<Experience />} />
+			<Route path='/contact' element={<Contact />} />
+			<Route path='/rooms/:id' element={<RoomDetails />} />
+			<Route path='/my-bookings' element={<MyBookings />} />
+			<Route path='/loader/:nextUrl' element={<Loader />} />
 
 
-          <Route path='/owner' element={<Layout />}>
-            <Route index element={<Dashboard />}/>
-            <Route path='add-room' element={<AddRoom />}/>
-            <Route path='list-room' element={<ListRoom />}/>
-          </Route>
+			<Route path='/owner' element={<Layout />}>
+			<Route index element={<Dashboard />}/>
+			<Route path='add-room' element={<AddRoom />}/>
+			<Route path='list-room' element={<ListRoom />}/>
+			</Route>
 
-        </Routes>
-      </div>
-      <Footer />
-    </div>
-  )
+			<Route path='/development' element={<Development />} />
+
+		</Routes>
+		</div>
+		<Footer />
+	</div>
+	)
 }
 
-export default App
+	export default App
