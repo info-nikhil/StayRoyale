@@ -2,6 +2,7 @@ import { assets } from '../assets/assets'
 
 // Each experience is matched against rooms that already exist in your database.
 // No backend change needed. Swap the images for your own whenever you like.
+
 export const experiences = [
     {
         slug: 'luxury',
