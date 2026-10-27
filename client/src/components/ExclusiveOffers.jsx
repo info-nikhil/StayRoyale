@@ -1,8 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Title from './Title'
 import { assets, exclusiveOffers } from '../assets/assets';
 
 const ExclusiveOffers = () => {
+    const navigate = useNavigate()
+    const goTo = (path) => { navigate(path); scrollTo(0, 0) }
     return (
         <div className='flex flex-col items-center px-6 md:px-16 lg:px-24 xl:px-32 pt-20 pb-30'>
             <div className='flex flex-col md:flex-row items-center justify-between w-full'>
@@ -12,7 +15,7 @@ const ExclusiveOffers = () => {
                     subTitle='Take advantage of our limited-time offers and special packages to enhance your stay and create unforgettable memories.'
                 />
 
-                <button className='group flex items-center gap-2'>
+                <button onClick={() => goTo('/experiences')} className='group flex items-center gap-2 cursor-pointer'>
                     View All Offers
                     <img
                         src={assets.arrowIcon}
@@ -38,7 +41,7 @@ const ExclusiveOffers = () => {
                             <p className='text-xs text-white/70 mt-3'>Expires {item.expiryDate}</p>
                         </div>
 
-                        <button className='flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5'>
+                        <button onClick={() => goTo(`/rooms?experience=${item.experience}`)} className='flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5'>
                             View Offers
                             <img
                                 className='invert group-hover:translate-x-1 transition-all'
