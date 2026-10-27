@@ -72,6 +72,17 @@ export const assets = {
     uploadArea,
     totalBookingIcon,
     totalRevenueIcon,
+
+    // Add these room images
+    roomImg1,
+    roomImg2,
+    roomImg3,
+    roomImg4,
+
+    // Exclusive offer images
+    exclusiveOfferCardImg1,
+    exclusiveOfferCardImg2,
+    exclusiveOfferCardImg3,
 }
 
 export const cities = [
